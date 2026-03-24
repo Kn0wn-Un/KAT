@@ -17,7 +17,7 @@ import {
   useTransform,
   PanInfo,
 } from "motion/react";
-import { portfolioItems } from "../../assets/portfolio";
+import { portfolioItems as portfolioArr } from "../../assets/portfolio";
 
 interface PortfolioProps {
   onNavigate: (page: string) => void;
@@ -67,7 +67,7 @@ export function Portfolio({
 
   // Randomize portfolio items once on component mount
   const portfolioItems: PortfolioItem[] = useMemo(() => {
-    const items = portfolioItems;
+    const items = portfolioArr;
 
     // Shuffle array using Fisher-Yates algorithm
     const shuffled = [...items];
