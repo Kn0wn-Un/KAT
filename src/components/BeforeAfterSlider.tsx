@@ -19,8 +19,19 @@ export function BeforeAfterSlider({
   const [isVisible, setIsVisible] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  // Detect mobile view
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
@@ -100,7 +111,9 @@ export function BeforeAfterSlider({
     <div className="relative">
       <div
         ref={containerRef}
-        className="relative w-full aspect-[3/4] md:aspect-video overflow-hidden rounded-lg cursor-ew-resize select-none"
+        className={`relative w-full overflow-hidden rounded-lg cursor-ew-resize select-none ${
+          isMobile ? 'aspect-[3/4]' : 'aspect-video'
+        }`}
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
       >

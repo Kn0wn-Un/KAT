@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
-export function FloatingWhatsApp() {
+interface FloatingWhatsAppProps {
+  isHidden?: boolean;
+}
+
+export function FloatingWhatsApp({ isHidden = false }: FloatingWhatsAppProps) {
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = '919900526377'; // +91 9900526377
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
+
+  if (isHidden) return null;
 
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="floating-whatsapp fixed bottom-8 right-8 z-50 group"
+      className="fixed bottom-8 right-8 z-50 group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       aria-label="Chat on WhatsApp"

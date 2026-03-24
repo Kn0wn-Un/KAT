@@ -9,6 +9,7 @@ import { About } from './components/pages/About';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
+  const [isPortfolioModalOpen, setIsPortfolioModalOpen] = useState(false);
 
   const handleNavigate = (page: string) => {
     // Navigate to About section on homepage (not separate page)
@@ -91,7 +92,7 @@ export default function App() {
         <main>
           {/* Home Section */}
           <div id="home">
-            <Home onNavigate={handleNavigate} />
+            <Home onNavigate={handleNavigate} onPortfolioModalChange={setIsPortfolioModalOpen} />
           </div>
         </main>
 
@@ -99,7 +100,7 @@ export default function App() {
       </div>
 
       {/* Floating WhatsApp Button */}
-      <FloatingWhatsApp />
+      <FloatingWhatsApp isHidden={isPortfolioModalOpen} />
     </div>
   );
 }

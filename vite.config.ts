@@ -1,68 +1,97 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
-  import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react';
-  import tailwindcss from '@tailwindcss/vite';
-  import path from 'path';
-
-  export default defineConfig({
-    plugins: [react(), tailwindcss()],
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-      alias: {
-        'vaul@1.1.2': 'vaul',
-        'sonner@2.0.3': 'sonner',
-        'recharts@2.15.2': 'recharts',
-        'react-resizable-panels@2.1.7': 'react-resizable-panels',
-        'react-hook-form@7.55.0': 'react-hook-form',
-        'react-day-picker@8.10.1': 'react-day-picker',
-        'next-themes@0.4.6': 'next-themes',
-        'lucide-react@0.487.0': 'lucide-react',
-        'input-otp@1.4.2': 'input-otp',
-        'figma:asset/fbc6bf91ccec7fa326d3f474621907b37ec61eec.png': path.resolve(__dirname, './src/assets/fbc6bf91ccec7fa326d3f474621907b37ec61eec.png'),
-        'figma:asset/f2bfac58c5ea321a990ba7e1433fce6a5f62cf49.png': path.resolve(__dirname, './src/assets/f2bfac58c5ea321a990ba7e1433fce6a5f62cf49.png'),
-        'figma:asset/d26e410788eea83a13d290a371a01a1a33e1a3d5.png': path.resolve(__dirname, './src/assets/d26e410788eea83a13d290a371a01a1a33e1a3d5.png'),
-        'figma:asset/be3e873ba5ce6486c2e82aafab0082e58c72bfed.png': path.resolve(__dirname, './src/assets/be3e873ba5ce6486c2e82aafab0082e58c72bfed.png'),
-        'figma:asset/9d73078fe5d924aeb91929e754d2b5b2dcf18ea1.png': path.resolve(__dirname, './src/assets/9d73078fe5d924aeb91929e754d2b5b2dcf18ea1.png'),
-        'figma:asset/59c43cb2b2fc556a0c6cbdc9d8fb27a579d8a4d2.png': path.resolve(__dirname, './src/assets/59c43cb2b2fc556a0c6cbdc9d8fb27a579d8a4d2.png'),
-        'figma:asset/444bf92e5917804e6307c17f8cf03002306eb41c.png': path.resolve(__dirname, './src/assets/444bf92e5917804e6307c17f8cf03002306eb41c.png'),
-        'embla-carousel-react@8.6.0': 'embla-carousel-react',
-        'cmdk@1.1.1': 'cmdk',
-        'class-variance-authority@0.7.1': 'class-variance-authority',
-        '@radix-ui/react-tooltip@1.1.8': '@radix-ui/react-tooltip',
-        '@radix-ui/react-toggle@1.1.2': '@radix-ui/react-toggle',
-        '@radix-ui/react-toggle-group@1.1.2': '@radix-ui/react-toggle-group',
-        '@radix-ui/react-tabs@1.1.3': '@radix-ui/react-tabs',
-        '@radix-ui/react-switch@1.1.3': '@radix-ui/react-switch',
-        '@radix-ui/react-slot@1.1.2': '@radix-ui/react-slot',
-        '@radix-ui/react-slider@1.2.3': '@radix-ui/react-slider',
-        '@radix-ui/react-separator@1.1.2': '@radix-ui/react-separator',
-        '@radix-ui/react-select@2.1.6': '@radix-ui/react-select',
-        '@radix-ui/react-scroll-area@1.2.3': '@radix-ui/react-scroll-area',
-        '@radix-ui/react-radio-group@1.2.3': '@radix-ui/react-radio-group',
-        '@radix-ui/react-progress@1.1.2': '@radix-ui/react-progress',
-        '@radix-ui/react-popover@1.1.6': '@radix-ui/react-popover',
-        '@radix-ui/react-navigation-menu@1.2.5': '@radix-ui/react-navigation-menu',
-        '@radix-ui/react-menubar@1.1.6': '@radix-ui/react-menubar',
-        '@radix-ui/react-label@2.1.2': '@radix-ui/react-label',
-        '@radix-ui/react-hover-card@1.1.6': '@radix-ui/react-hover-card',
-        '@radix-ui/react-dropdown-menu@2.1.6': '@radix-ui/react-dropdown-menu',
-        '@radix-ui/react-dialog@1.1.6': '@radix-ui/react-dialog',
-        '@radix-ui/react-context-menu@2.2.6': '@radix-ui/react-context-menu',
-        '@radix-ui/react-collapsible@1.1.3': '@radix-ui/react-collapsible',
-        '@radix-ui/react-checkbox@1.1.4': '@radix-ui/react-checkbox',
-        '@radix-ui/react-avatar@1.1.3': '@radix-ui/react-avatar',
-        '@radix-ui/react-aspect-ratio@1.1.2': '@radix-ui/react-aspect-ratio',
-        '@radix-ui/react-alert-dialog@1.1.6': '@radix-ui/react-alert-dialog',
-        '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
-        '@': path.resolve(__dirname, './src'),
-      },
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    alias: {
+      "vaul@1.1.2": "vaul",
+      "sonner@2.0.3": "sonner",
+      "recharts@2.15.2": "recharts",
+      "react-resizable-panels@2.1.7": "react-resizable-panels",
+      "react-hook-form@7.55.0": "react-hook-form",
+      "react-day-picker@8.10.1": "react-day-picker",
+      "next-themes@0.4.6": "next-themes",
+      "lucide-react@0.487.0": "lucide-react",
+      "input-otp@1.4.2": "input-otp",
+      "figma:asset/logo-dark.png": path.resolve(
+        __dirname,
+        "./src/assets/logo-dark.png"
+      ),
+      "figma:asset/Kowshik.png": path.resolve(
+        __dirname,
+        "./src/assets/Kowshik.png"
+      ),
+      "figma:asset/Adithya.png": path.resolve(
+        __dirname,
+        "./src/assets/Adithya.png"
+      ),
+      "figma:asset/before-image.png": path.resolve(
+        __dirname,
+        "./src/assets/before-image.png"
+      ),
+      "figma:asset/after-image.png": path.resolve(
+        __dirname,
+        "./src/assets/after-image.png"
+      ),
+      "figma:asset/Arpitha.png": path.resolve(
+        __dirname,
+        "./src/assets/Arpitha.png"
+      ),
+      "figma:asset/logo-light.png": path.resolve(
+        __dirname,
+        "./src/assets/logo-light.png"
+      ),
+      "figma:asset/mobile-before.png": path.resolve(
+        __dirname,
+        "./src/assets/mobile-before.png"
+      ),
+      "figma:asset/mobile-after.png": path.resolve(
+        __dirname,
+        "./src/assets/mobile-after.png"
+      ),
+      "embla-carousel-react@8.6.0": "embla-carousel-react",
+      "cmdk@1.1.1": "cmdk",
+      "class-variance-authority@0.7.1": "class-variance-authority",
+      "@radix-ui/react-tooltip@1.1.8": "@radix-ui/react-tooltip",
+      "@radix-ui/react-toggle@1.1.2": "@radix-ui/react-toggle",
+      "@radix-ui/react-toggle-group@1.1.2": "@radix-ui/react-toggle-group",
+      "@radix-ui/react-tabs@1.1.3": "@radix-ui/react-tabs",
+      "@radix-ui/react-switch@1.1.3": "@radix-ui/react-switch",
+      "@radix-ui/react-slot@1.1.2": "@radix-ui/react-slot",
+      "@radix-ui/react-slider@1.2.3": "@radix-ui/react-slider",
+      "@radix-ui/react-separator@1.1.2": "@radix-ui/react-separator",
+      "@radix-ui/react-select@2.1.6": "@radix-ui/react-select",
+      "@radix-ui/react-scroll-area@1.2.3": "@radix-ui/react-scroll-area",
+      "@radix-ui/react-radio-group@1.2.3": "@radix-ui/react-radio-group",
+      "@radix-ui/react-progress@1.1.2": "@radix-ui/react-progress",
+      "@radix-ui/react-popover@1.1.6": "@radix-ui/react-popover",
+      "@radix-ui/react-navigation-menu@1.2.5":
+        "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-menubar@1.1.6": "@radix-ui/react-menubar",
+      "@radix-ui/react-label@2.1.2": "@radix-ui/react-label",
+      "@radix-ui/react-hover-card@1.1.6": "@radix-ui/react-hover-card",
+      "@radix-ui/react-dropdown-menu@2.1.6": "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-dialog@1.1.6": "@radix-ui/react-dialog",
+      "@radix-ui/react-context-menu@2.2.6": "@radix-ui/react-context-menu",
+      "@radix-ui/react-collapsible@1.1.3": "@radix-ui/react-collapsible",
+      "@radix-ui/react-checkbox@1.1.4": "@radix-ui/react-checkbox",
+      "@radix-ui/react-avatar@1.1.3": "@radix-ui/react-avatar",
+      "@radix-ui/react-aspect-ratio@1.1.2": "@radix-ui/react-aspect-ratio",
+      "@radix-ui/react-alert-dialog@1.1.6": "@radix-ui/react-alert-dialog",
+      "@radix-ui/react-accordion@1.2.3": "@radix-ui/react-accordion",
+      "@": path.resolve(__dirname, "./src"),
     },
-    build: {
-      target: 'esnext',
-      outDir: 'dist',
-    },
-    server: {
-      port: 3000,
-      open: true,
-    },
-  });
+  },
+  build: {
+    target: "esnext",
+    outDir: "build",
+  },
+  server: {
+    port: 3000,
+    open: true,
+  },
+});

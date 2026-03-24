@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo } from '
 interface PortfolioProps {
   onNavigate: (page: string) => void;
   onOpenContactModal?: () => void;
+  onModalStateChange?: (isOpen: boolean) => void;
 }
 
 interface PortfolioItem {
@@ -14,9 +15,10 @@ interface PortfolioItem {
   category: string;
   image?: string;
   video?: string;
+  altImage?: string; // Alternate image to show in modal
 }
 
-export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
+export function Portfolio({ onNavigate, onOpenContactModal, onModalStateChange }: PortfolioProps) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [currentModalIndex, setCurrentModalIndex] = useState(0);
@@ -33,18 +35,6 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Hide/show WhatsApp button based on modal state
-  useEffect(() => {
-    const whatsappButton = document.querySelector('.floating-whatsapp') as HTMLElement;
-    if (whatsappButton) {
-      if (selectedIndex !== null && isMobile) {
-        whatsappButton.style.display = 'none';
-      } else {
-        whatsappButton.style.display = 'block';
-      }
-    }
-  }, [selectedIndex, isMobile]);
 
   const filters = ['All', 'Architecture', 'Interior', '3D-Walkthrough', 'Real Estate', '3D-Streaming', 'VR'];
 
@@ -208,6 +198,9 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
 
   // Handle video when modal opens/closes
   useEffect(() => {
+    // Notify parent about modal state change
+    onModalStateChange?.(selectedIndex !== null);
+
     if (currentItem && currentItem.video) {
       // Start playing when video modal opens
       if (videoRef.current) {
@@ -634,7 +627,7 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
                     onClick={goToPrevious}
                     className={`absolute z-40 w-12 h-12 md:w-14 md:h-14 rounded-full glass-effect backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#A8C0D6]/20 hover:border-[#A8C0D6]/50 hover:text-[#A8C0D6] hover:scale-110 transition-all duration-300 group ${
                       isMobile 
-                        ? 'top-4 left-1/2 -translate-x-1/2' 
+                        ? 'top-24 left-1/2 -translate-x-1/2' 
                         : 'left-4 md:left-10 top-1/2 -translate-y-1/2'
                     }`}
                     aria-label="Previous"
@@ -651,7 +644,7 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
                     onClick={goToNext}
                     className={`absolute z-40 w-12 h-12 md:w-14 md:h-14 rounded-full glass-effect backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#A8C0D6]/20 hover:border-[#A8C0D6]/50 hover:text-[#A8C0D6] hover:scale-110 transition-all duration-300 group ${
                       isMobile 
-                        ? 'bottom-4 left-1/2 -translate-x-1/2' 
+                        ? 'bottom-24 left-1/2 -translate-x-1/2' 
                         : 'right-4 md:right-10 top-1/2 -translate-y-1/2'
                     }`}
                     aria-label="Next"
@@ -668,9 +661,27 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
 
             {/* Current Item Info */}
             {currentItem && (
-              <div className={`absolute left-0 right-0 z-40 text-center px-5 ${
-                isMobile ? 'bottom-20' : 'bottom-8'
+              <div className={`absolute z-40 left-0 right-0 text-center px-5 ${
+                isMobile ? 'top-4' : 'bottom-8'
               }`}>
+                {/* Pagination Dots - At top for mobile, above text for desktop */}
+                <div className={`flex justify-center gap-2 ${isMobile ? 'mb-3' : 'mt-4 order-last'}`}>
+                  {filteredItems.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentModalIndex(index);
+                      }}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        index === currentModalIndex
+                          ? 'w-8 bg-[#A8C0D6]'
+                          : 'w-2 bg-white/30 hover:bg-white/50'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
                 <motion.h2
                   key={currentModalIndex}
                   initial={{ opacity: 0, y: 20 }}
@@ -691,24 +702,6 @@ export function Portfolio({ onNavigate, onOpenContactModal }: PortfolioProps) {
                 >
                   {currentItem.category}
                 </motion.p>
-                {/* Pagination Dots */}
-                <div className="flex justify-center gap-2 mt-4">
-                  {filteredItems.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentModalIndex(index);
-                      }}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        index === currentModalIndex
-                          ? 'w-8 bg-[#A8C0D6]'
-                          : 'w-2 bg-white/30 hover:bg-white/50'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
               </div>
             )}
           </motion.div>

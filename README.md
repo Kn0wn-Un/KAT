@@ -1,7 +1,7 @@
 
   # KAT-VIZ (3) (1) (1)
 
-  This is a code bundle for KAT-VIZ (3) (1) (1). The original project is available at https://www.figma.com/design/GUbO2XbJMH7LUzOE4o7ORW/KAT-VIZ--3---1---1-.
+  This is a code bundle for KAT-VIZ (3) (1) (1). The original project is available at https://www.figma.com/design/nq0ccZDeI8pGMvPMJD9nvA/KAT-VIZ--3---1---1-.
 
   ## Running the code
 
