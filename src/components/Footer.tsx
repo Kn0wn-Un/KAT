@@ -18,11 +18,27 @@ interface FooterProps {
 export function Footer({ onNavigate }: FooterProps) {
   const socialLinks = [
     { icon: FaWhatsapp, label: "WhatsApp", url: "https://wa.me/919900526377" },
-    { icon: Instagram, label: "Instagram", url: "#" },
-    { icon: Youtube, label: "YouTube", url: "#" },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      url: "https://www.instagram.com/katvisualizationstudio",
+    },
+    {
+      icon: Youtube,
+      label: "YouTube",
+      url: "https://www.youtube.com/channel/UCF2MyowstcNQIfWpmjdPAag",
+    },
     { icon: Facebook, label: "Facebook", url: "#" },
-    { icon: FaPinterest, label: "Pinterest", url: "#" },
-    { icon: Linkedin, label: "LinkedIn", url: "#" },
+    {
+      icon: FaPinterest,
+      label: "Pinterest",
+      url: "https://www.pinterest.com/katvisualizationstudio/",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      url: "https://in.linkedin.com/in/kat-visualization-studio",
+    },
   ];
 
   const navLinks = [
