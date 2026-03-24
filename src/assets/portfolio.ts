@@ -9,8 +9,7 @@ export const portfolioItems = [
   {
     title: "Architectural Visualization",
     category: "Architecture",
-    image:
-      "https://images.unsplash.com/photo-1747538454771-c6500c61266d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmFsJTIwdmlzdWFsaXphdGlvbiUyMDNkfGVufDF8fHx8MTc2MjE4NjkxMHww&ixlib=rb-4.1.0&q=80&w=1920&h=1080&utm_source=figma&utm_medium=referral",
+    image: "https://www.modernhousemaker.com/assets/images/3.jpg",
   },
   {
     title: "Minimal Architecture",
