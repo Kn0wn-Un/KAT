@@ -4,7 +4,7 @@ export const portfolioItems = [
     title: "Modern Villa Rendering",
     category: "Architecture",
     image:
-      "https://images.unsplash.com/photo-1696237461860-630be53f179c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB2aWxsYSUyMGFyY2hpdGVjdHVyZSUyMGV4dGVyaW9yfGVufDF8fHx8MTc2MjE4NjkwOXww&ixlib=rb-4.1.0&q=80&w=1920&h=1080&utm_source=figma&utm_medium=referral",
+      "https://balajistoneartbuilders.com/wp-content/uploads/2025/02/WhatsApp-Image-2023-02-14-at-10.15.24-PM-1024x768.jpeg",
   },
   {
     title: "Architectural Visualization",
