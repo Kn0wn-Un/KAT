@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAT Studio</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+
+      /* Gradient background */
+      background: linear-gradient(135deg, #f6b07a, #d96c7a, #7b6cf6);
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 140px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 80px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: 0.85;
+      letter-spacing: 2px;
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 🔥 YOUR LOGO -->
+    <img src="/logo.png" alt="KAT Logo" class="logo">
+
+    <h1>COMING SOON</h1>
+
+    <div class="subtext">
+      WE ARE BUILDING AND DEVELOPING A BETTER WEBSITE AND MORE APPS FOR YOU.<br>
+      PLEASE WAIT FOR A WHILE AND WE’LL COME BACK AS SOON AS POSSIBLE
+    </div>
+
+    <div class="footer">Stay Tune</div>
+
+  </div>
+
+</body>
+</html>
